@@ -3,7 +3,6 @@ package com.example.autopark;
 
 import java.util.List; // Импортируем коллекцию (класс списков)
 
-import org.apache.catalina.Store;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -18,34 +17,34 @@ import org.springframework.web.servlet.ModelAndView;
 public class AppController {
 
     @Autowired
-    private AutoService service;
+    private TheatreService service;
 
     @RequestMapping("/")
     public String viewHomePage(Model model, @Param("keyword") String keyword) {
-        List<AutoORM> listBooks = service.listAll(keyword);
-        model.addAttribute("listAuto", listBooks);
+        List<TheatreORM> listPerf = service.listAll(keyword);
+        model.addAttribute("listPerf", listPerf);
         model.addAttribute("keyword", keyword);
         return "index";
     }
 
     @RequestMapping("/new")
     public String showNewBookForm(Model model) {
-        AutoORM auto = new AutoORM();
-        model.addAttribute("auto", auto);
-        return "new_auto";
+        TheatreORM perf = new TheatreORM();
+        model.addAttribute("perf", perf);
+        return "new_perf";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveBook(@ModelAttribute("auto") AutoORM auto) {
-        service.save(auto); // Сохраняем книгу
+    public String saveBook(@ModelAttribute("perf") TheatreORM perf) {
+        service.save(perf); // Сохраняем книгу
         return "redirect:/"; //
     }
 
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditAutoForm(@PathVariable(name = "id") Long id) {
-        ModelAndView mav = new ModelAndView("edit_auto");
-        AutoORM auto = service.get(id);
-        mav.addObject("auto", auto);
+        ModelAndView mav = new ModelAndView("edit_perf");
+        TheatreORM perf = service.get(id);
+        mav.addObject("perf", perf);
         return mav;
     }
 

@@ -6,21 +6,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
 
 @Setter
 @Entity
-public class AutoORM {
+public class TheatreORM {
     @Id
     private Long id;
     @Getter
-    private String mark;
+    private String name;
     @Getter
-    private String year;
+    private String artistsName;
     @Getter
-    private String accDate;
+    private String date;
     @Getter
-    private String owner;
+    private String time;
+    @Getter
+    private String valueOfTickets;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
