@@ -30,7 +30,11 @@
                     </tr>
                     <tr>
                         <td>Дата:</td>
-                        <td><input type="text" th:field="*{date}"></td>
+                        <td><input type="text"
+                                   placeholder="ДД.ММ.ГГ"
+                                   onkeyup="this.value = this.value.replace(/[^0-9.]/g, '');"
+                                   onchange="validateDate(this.value);" th:field="*{date}">
+                        </td>
                     </tr>
                     <tr>
                         <td>Время:</td>
