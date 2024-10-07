@@ -1,4 +1,4 @@
-package com.example.autopark;
+package com.example.demo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+import java.time.LocalDate;
 
 @Setter
 @Entity
@@ -17,7 +18,7 @@ public class TheatreORM {
     @Getter
     private String artistsName;
     @Getter
-    private String date;
+    private LocalDate date;
     @Getter
     private String time;
     @Getter
