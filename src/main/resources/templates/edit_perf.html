@@ -17,7 +17,9 @@
                     <tr>
                         <td>ID</td>
                         <td><label>
-                            <input type="text" th:field="*{id}">
+                            <input type="text"
+                                   onkeyup="this.value = this.value.replace(/[^0-9]/g, '');"
+                                   onchange="validateDate(this.value);" th:field="*{id}">
                         </label></td>
                     </tr>
                     <tr>

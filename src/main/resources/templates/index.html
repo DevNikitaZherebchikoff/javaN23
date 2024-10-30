@@ -78,9 +78,14 @@
             </button>
         </a>
     </blockquote>
-    <div class="gist" id="curve_chart" style="width: 900px; height: 500px; margin: auto; ">
-        <script type="text/javascript" src="/static/gist.js"></script>
-    </div>
+    <div class="gist" id="curve_chart" style="width: 900px; height: 500px; margin: auto;"></div>
+
+    <!-- Передаем данные как JSON -->
+    <script th:inline="javascript">
+        var ThData = [[${listPerf}]];
+    </script>
+
+    <script type="text/javascript" src="/static/gist.js"></script>
 </div>
 <script type="text/javascript">
     function clearSearch() {
